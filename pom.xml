@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+           http://maven.apache.org/POM/4.0.0
+           https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.ederquinones</groupId>
+  <artifactId>antlr-sql-parser</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>21</maven.compiler.release>
+
+    <antlr.version>4.13.2</antlr.version>
+    <junit.version>5.11.0</junit.version>
+    <spotless.version>3.10.2</spotless.version>
+    <checkstyle.version>3.6.0</checkstyle.version>
+    <spotbugs.version>4.10.4.1</spotbugs.version>
+  </properties>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>org.antlr</groupId>
+      <artifactId>antlr4</artifactId>
+      <version>${antlr.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.antlr</groupId>
+      <artifactId>antlr4-runtime</artifactId>
+      <version>${antlr.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.antlr</groupId>
+        <artifactId>antlr4-maven-plugin</artifactId>
+        <version>${antlr.version}</version>
+
+        <executions>
+          <execution>
+            <goals>
+              <goal>antlr4</goal>
+            </goals>
+          </execution>
+        </executions>
+
+        <configuration>
+          <visitor>true</visitor>
+          <listener>false</listener>
+          <treatWarningsAsErrors>true</treatWarningsAsErrors>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <version>${spotless.version}</version>
+        <configuration>
+          <java>
+            <googleJavaFormat />
+            <removeUnusedImports />
+            <trimTrailingWhitespace />
+            <endWithNewline />
+          </java>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>
+              verify
+            </phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${checkstyle.version}</version>
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <excludeGeneratedSources>true</excludeGeneratedSources>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+        <version>${spotbugs.version}</version>
+
+        <configuration>
+          <effort>Max</effort>
+          <threshold>Medium</threshold>
+        </configuration>
+
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+
+
+</project>

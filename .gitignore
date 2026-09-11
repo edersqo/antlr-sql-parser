@@ -1,0 +1,30 @@
+# Maven build output
+target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Java
+*.class
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+# Environment files
+.env
+.env.*
+!.env.example
