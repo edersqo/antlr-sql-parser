@@ -6,13 +6,27 @@ options {
     caseInsensitive = true;
 }
 
-SELECT : 'SELECT';
-FROM   : 'FROM';
+// Keywords
+SELECT    : 'SELECT';
+DISTINCT  : 'DISTINCT';
+ALL       : 'ALL';
+FROM      : 'FROM';
+AS        : 'AS';
 
-IDENTIFIER
-    : [a-z_] [a-z0-9_]*
-    ;
+// Operator
+PLUS_SIGN  : '+';
+MINUS_SIGN : '-';
+ASTERISK   : '*';
+SOLIDUS    : '/';
 
-WS
-    : [ \t\r\n]+ -> skip
-    ;
+// Separators / punctuation
+COMMA       : ',';
+PERIOD      : '.';
+SEMICOLON   : ';';
+LEFT_PAREN  : '(';
+RIGHT_PAREN : ')';
+
+// Literals
+UNSIGNED_INTEGER
+  : [0-9]+
+  ;

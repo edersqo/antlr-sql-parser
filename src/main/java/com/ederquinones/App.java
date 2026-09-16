@@ -4,13 +4,14 @@ package com.ederquinones;
 public final class App {
 
   /** Prevents instantiation of this utility class. */
-  private App() {}
+  private App() {
+    throw new AssertionError("Utility class must not be instantiated");
+  }
 
   /**
    * Application entry point.
    *
-   * <p>Creates a sample SQL query, parses it using {@link MiniSql}, and prints the resulting ANTLR
-   * parse tree.
+   * <p>Parses and prints a sample query using {@link MiniSql}.
    *
    * @param args command-line arguments
    */

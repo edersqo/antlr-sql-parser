@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+  <!-- ANTLR owns these generated classes; changes would be overwritten. -->
+  <Match>
+    <Class
+      name="~com\.ederquinones\.sql\.iso\.Sql(Lexer|Parser|ParserBaseVisitor|ParserVisitor)(\$.*)?"/>
+  </Match>
+  <Match>
+    <Class
+      name="~com\.ederquinones\.sql\.minisql\.MiniSql(Lexer|Parser|ParserBaseVisitor|ParserVisitor)(\$.*)?"/>
+  </Match>
+</FindBugsFilter>
