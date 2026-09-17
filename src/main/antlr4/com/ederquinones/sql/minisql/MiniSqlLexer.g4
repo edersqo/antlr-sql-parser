@@ -1,5 +1,7 @@
 lexer grammar MiniSqlLexer;
 
+import CommonSqlLexer;
+
 options {
     caseInsensitive = true;
 }
@@ -24,12 +26,4 @@ NUMBER
 
 STRING
     : '\'' ~'\''* '\''
-    ;
-
-IDENTIFIER
-    : [a-z_] [a-z0-9_]*
-    ;
-
-WS
-    : [ \t\r\n]+ -> skip
     ;

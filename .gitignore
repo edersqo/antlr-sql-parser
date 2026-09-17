@@ -1,6 +1,12 @@
 # Maven build output
 target/
 
+# ANTLR output generated outside Maven
+gen/
+src/main/antlr4/**/gen/
+src/main/antlr4/**/*.tokens
+src/main/antlr4/**/*.interp
+
 # IntelliJ IDEA
 .idea/
 *.iml
